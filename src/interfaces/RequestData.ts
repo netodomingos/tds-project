@@ -1,6 +1,7 @@
 export interface RequestData{
     current?: CurrentData;
     location?: LocationData;
+    forecast?: ForecastData;
 }
 
 type CurrentData = {
@@ -44,4 +45,17 @@ type LocationData = {
     name: string;
     region: string;
     tz_id: string;
+}
+
+type ForecastData = {
+    forecastday: Array<ForeCast>;
+}
+
+type ForeCast = {
+    day: dayData;
+}
+
+type dayData = {
+    maxtemp_c: number;
+    mintemp_c: number;
 }

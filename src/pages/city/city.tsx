@@ -1,13 +1,16 @@
-import { Container, Title, ViewContent } from '../../styles/styles.global'
+import { Container, SubTitle, Title, ViewContent } from '../../styles/styles.global'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import Service from '../../services/service'
 
 import { RequestData } from '../../interfaces/RequestData'
+import Header from '../../components/header/header'
+import Temperature from '../../components/temperature/temperature'
 
 export default function City() {
   const [requestData, setRequestData] = useState<RequestData>({})
-  const [error, setError] = useState(false)
+  const [loading, setLoading] = useState(true)
+  
   const { city } = useParams()
 
   useEffect(() => {
@@ -15,14 +18,14 @@ export default function City() {
   }, [])
   
   const handleGetCityData = async () => {
-    await Service.get(`/current.json?key=${import.meta.env.VITE_WEATHER_API_KEY}&q=${city}`)
+    setLoading(true)
+    await Service.get(`/forecast.json?key=${import.meta.env.VITE_WEATHER_API_KEY}&q=${city}`)
       .then(response => {
         setRequestData(response.data)
-        console.log(response.data)
-        
+        setLoading(false)
       })
       .catch(() => {
-        setError(true);
+        setLoading(false);
       }
     )
   }
@@ -30,14 +33,18 @@ export default function City() {
   return (
     <Container>
       <ViewContent>
+      <Header />
         {
-          error === false ? (
+          loading !== true && (
             <>
-              <Title>{requestData.location?.country}</Title>
-            </>
-          ) : (
-            <>
-              <Title>erro</Title>
+              <Title>{city}</Title>
+              <SubTitle>{requestData.current?.condition.text}</SubTitle>
+              <Temperature 
+                actualTemperature={requestData.current?.temp_c}
+                minTemperature={requestData.forecast?.forecastday[0].day.mintemp_c}
+                maxTemperature={requestData.forecast?.forecastday[0].day.maxtemp_c}
+                condition={requestData.current?.condition.text ? requestData.current?.condition.text : 'Sunny'}
+              />
             </>
           )
         }
