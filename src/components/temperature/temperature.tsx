@@ -30,8 +30,8 @@ export default function Temperature({ actualTemperature, minTemperature, maxTemp
 				<SubContainer>
 					<TemperatureType>ºC</TemperatureType>
 					<SubContainer>
-						<MiniTemperatures><HiArrowLongUp size={15} color='#F2F2F2'/>{minTemperature}º</MiniTemperatures>
-						<MiniTemperatures><HiArrowLongDown size={15} color='#F2F2F2'/>{maxTemperature}º</MiniTemperatures>
+						<MiniTemperatures><HiArrowLongUp size={15} color='#F2F2F2'/>{maxTemperature}º</MiniTemperatures>
+						<MiniTemperatures><HiArrowLongDown size={15} color='#F2F2F2'/>{minTemperature}º</MiniTemperatures>
 					</SubContainer>
 				</SubContainer>
 			</InternContainer>

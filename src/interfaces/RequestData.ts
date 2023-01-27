@@ -53,9 +53,26 @@ type ForecastData = {
 
 type ForeCast = {
     day: dayData;
+    hour: Array<hourData>
+    astro: astroData;
 }
 
 type dayData = {
     maxtemp_c: number;
     mintemp_c: number;
+}
+
+type astroData = {
+    moon_illumination: string;
+    moon_phase: string;
+    moonrise: string;
+    moonset: string;
+    sunrise: string;
+    sunset: string;
+}
+
+export interface hourData {
+    temp_c: number;
+    condition: ConditionData;
+    title?: string
 }
