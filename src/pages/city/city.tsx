@@ -50,7 +50,7 @@ export default function City() {
       <ViewContent>
       <Header />
         {
-          loading !== true && (
+          loading !== true ? (
             <>
               <Title>{city}</Title>
               <SubTitle>{requestData.current?.condition.text}</SubTitle>
@@ -70,6 +70,8 @@ export default function City() {
                 sunset={requestData.forecast?.forecastday[0].astro.sunset}
               />
             </>
+          ) : (
+            <SubTitle>Loading...</SubTitle>
           )
         }
       </ViewContent>
