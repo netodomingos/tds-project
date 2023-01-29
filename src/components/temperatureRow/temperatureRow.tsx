@@ -13,19 +13,19 @@ type TemperatureRowProps = {
 
 export default function TemperatureRow({ temperatureRows }: TemperatureRowProps) {
   return (
-    <Container>
+    <Container data-testid={'TemperatureRowTestID'}>
         {
           temperatureRows.map(temperature => (
-						<InterContainer>
-							<Title>
-								{temperature.title}
-							</Title>
-							<WeatherIcons weather={temperature.condition.text} size={40}/>
-							<TemperatureText>
-								{temperature.temp_c} ºC
-							</TemperatureText>
-						</InterContainer>
-					))
+				<InterContainer>
+					<Title>
+						{temperature.title}
+					</Title>
+					<WeatherIcons weather={temperature.condition.text} size={40}/>
+					<TemperatureText data-testid={temperature.temp_c}>
+						{temperature.temp_c} ºC
+					</TemperatureText>
+				</InterContainer>
+			))
         }
     </Container>
   )

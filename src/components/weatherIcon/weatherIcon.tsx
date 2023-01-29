@@ -322,5 +322,9 @@ export default function WeatherIcons({weather, size}: WeatherConditionsProps) {
 		}
 	}
 
-	return (<>{handleGetIcon()}</>)
+	return (
+	<div data-testid={weather}>
+		{handleGetIcon()}
+	</div>
+	)
 }

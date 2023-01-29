@@ -14,22 +14,22 @@ import {
 
 export default function ConditionsRow({wind, sunrise, sunset, humidity}: ConditionsRowProps) {
   return (
-    <Container>
-        <InternContainer borderLeft={false}>
+    <Container data-testid={'ConditionsRowTestId'}>
+        <InternContainer>
             <Title>wind speed</Title>
-            <SubTitle>{wind}m/s</SubTitle>
+            <SubTitle data-testid={wind}>{wind}m/s</SubTitle>
         </InternContainer>
-        <InternContainer borderLeft={true}>
+        <InternContainer>
             <Title>sunrise</Title>
-            <SubTitle>{sunrise}</SubTitle>
+            <SubTitle data-testid={sunrise} >{sunrise}</SubTitle>
         </InternContainer>
-        <InternContainer borderLeft={true}>
+        <InternContainer>
             <Title>sunset</Title>
-            <SubTitle>{sunset}</SubTitle>
+            <SubTitle data-testid={sunset}>{sunset}</SubTitle>
         </InternContainer>
-        <InternContainer borderLeft={true}>
+        <InternContainer>
             <Title>humidity</Title>
-            <SubTitle>{humidity}%</SubTitle>
+            <SubTitle data-testid={humidity}>{humidity}%</SubTitle>
         </InternContainer>
     </Container>
   )

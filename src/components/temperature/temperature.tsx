@@ -20,18 +20,18 @@ type TemperatureParams = {
 
 export default function Temperature({ actualTemperature, minTemperature, maxTemperature, condition }: TemperatureParams) {
 	return (
-    <Container>
+    <Container data-testid="TemperatureTestId">
 			<InternContainer>
 				<SubContainer>
-					<ActualTemperature>
+					<ActualTemperature data-testid="ActualTemperatureTestId">
 						{actualTemperature}
 					</ActualTemperature>
 				</SubContainer>
 				<SubContainer>
 					<TemperatureType>ºC</TemperatureType>
 					<SubContainer>
-						<MiniTemperatures><HiArrowLongUp size={15} color='#F2F2F2'/>{maxTemperature}º</MiniTemperatures>
-						<MiniTemperatures><HiArrowLongDown size={15} color='#F2F2F2'/>{minTemperature}º</MiniTemperatures>
+						<MiniTemperatures data-testid="MaxTemperatureTestId"><HiArrowLongUp size={15} color='#F2F2F2'/>{maxTemperature}º</MiniTemperatures>
+						<MiniTemperatures data-testid="MinTemperatureTestId"><HiArrowLongDown size={15} color='#F2F2F2'/>{minTemperature}º</MiniTemperatures>
 					</SubContainer>
 				</SubContainer>
 			</InternContainer>

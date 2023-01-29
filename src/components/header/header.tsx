@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom'
 
 export default function Header() {
   return (
-    <Container>
+    <Container data-testid={'HeaderTestId'}>
         <Link 
            to={{ pathname: `/`}}
         >
-            <FaArrowLeft size={30} color="#FFF"/>
+            <FaArrowLeft size={30} color="#FFF"  data-testid={'HeaderIconTestId'}/>
         </Link>
     </Container>
   )
