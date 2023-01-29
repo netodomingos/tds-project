@@ -68,7 +68,6 @@ export default function Home() {
             ))
           }
         </RowContent>
-        <Title>teste dev '{import.meta.env.VITE_WEATHER_API_KEY}'</Title>
       </ViewContent>
     </Container>
   )
