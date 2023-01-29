@@ -68,6 +68,7 @@ export default function Home() {
             ))
           }
         </RowContent>
+        <Title>{import.meta.env.VITE_TEST_ENV}</Title>
       </ViewContent>
     </Container>
   )
