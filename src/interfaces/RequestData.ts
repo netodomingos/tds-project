@@ -1,4 +1,8 @@
 export interface RequestData{
+    data?: Response
+}
+
+export interface Response {
     current?: CurrentData;
     location?: LocationData;
     forecast?: ForecastData;
