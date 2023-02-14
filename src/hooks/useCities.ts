@@ -13,23 +13,20 @@ export default function useCities(city: string){
 
   async function handGetCity(){
     setLoading(true)
-		await Service.get(`/forecast.json?key=${import.meta.env.VITE_WEATHER_API_KEY}&q=${city}`)
-			.then((response) => {
-				console.log(response);
-				setLoading(false)
-				setData(response.data)
-			})
-			.catch((error) => {
-				console.log(error);
-
-				setLoading(false)
-				setError(error)
-			}
-		)
+	await Service.get(`/forecast.json?key=${import.meta.env.VITE_WEATHER_API_KEY}&q=${city}`)
+		.then((response) => {
+			setLoading(false)
+			setData(response.data)
+		})
+		.catch((error) => {
+			setLoading(false)
+			setError(error)
+		}
+	)
   }
 
   return {
-		data, error, loading
+	data, error, loading
   }
 }
 
